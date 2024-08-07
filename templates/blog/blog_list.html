@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Blog {% endblock %}
+
+{% block content %}
+<!-- Artículo Destacado -->
+<div>
+    <div style="height: 512px;" class="overflow-hidden lg:max-h-[512px] flex items-center justify-center">
+        <img class="w-full h-32 object-cover lg:h-full" src="{{highlighted_post.featured_image.url}}" alt="Imagen {{highlighted_post.title}}">
+    </div>
+    <div class="p-2 flex flex-col justify-center container mx-auto max-w-6xl mb-4">
+        <a href="{% url 'post_details' highlighted_post.slug %}">
+            <h2 class="text-4xl font-bold mb-4 text-center">{{ highlighted_post.title }}</h2>
+            <p class="text-lg mb-4">{{ highlighted_post.content|truncatechars:150|safe }}</p>
+        </a>
+    </div>
+</div>
+<div class="container mx-auto px-4">
+    <!-- Lista de Artículos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Card de Artículo -->
+        {% for post in other_posts %}
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg mb-8">
+            <a href="{% url "post_details" post.slug %}">
+                <img src="{{post.featured_image.url}}" alt="{{post.title}}" class="w-full h-64 object-cover object-center">
+                <div class="p-4 h-64">
+                    <h3 class="text-xl font-bold mb-2">{{post.title}}</h3>
+                    <p class="text-gray-700 mb-4">{{post.content|truncatechars:150|safe}}</p>
+                    <a href="{% url "post_details" post.slug %}" class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 my-4 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Leer más
+                        <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </a>
+            <ul class="flex justify-between p-4">
+                {% for category in post.categories.all %}
+                <li>
+                    <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700" href="{% url 'category_posts' category.name %}">
+                        #{{ category.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Repite la card para más artículos -->
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

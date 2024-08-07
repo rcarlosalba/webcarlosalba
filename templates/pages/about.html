@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}¿Quién es Carlos Alba?{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container mx-auto max-w-5xl p-8 leading-7">
+    <h1 class="text-4xl font-semibold text-center my-2">¿Quién es Carlos Alba?</h1>
+    <img 
+        class="mx-auto rounded-lg shadow-lg w-80 h-64 object-cover object-center my-4"
+        src="{% static 'img/profile.jpg' %}" alt="Carlos Alba">
+    <p>Desde joven, Carlos ha estado fascinado por el aprendizaje y la enseñanza. 
+        A los 15 años, ya impartía clases de matemáticas a sus vecinos, 
+        y a los 18 se graduó como Maestro de Educación Primaria, dedicándose a la 
+        enseñanza de la tecnología.
+    </p>
+    <p>Su pasión por el conocimiento lo ha llevado por un camino de aprendizaje y transformación 
+        que lo ha convertido en un profesional multifacético. Su espíritu inquieto lo ha llevado a 
+        explorar diversas áreas:
+    </p>
+    <ul class="list-disc list-inside mb-4">
+        <li><span class="font-semibold">Psicólogo:</span> Ofrece orientación vocacional y terapia individual para jóvenes y adolescentes, 
+            guiándolos en su camino hacia el autodescubrimiento y el bienestar.</li>
+        <li><span class="font-semibold">Desarrollador web:</span> Diseña y desarrolla sitios web y aplicaciones web a medida, 
+            utilizando su creatividad y habilidades técnicas para crear soluciones innovadoras.</li>
+        <li><span class="font-semibold">Profesor:</span> Imparte cursos de programación en Python, JavaScript y otras tecnologías web, 
+            transmitiendo su pasión por la tecnología a las nuevas generaciones.</li>
+        <li><span class="font-semibold">Coach:</span> También dedica su tiempo a ayudar a cientos de estudiantes a alcanzar sus metas académicas, 
+            creando rutas de estudio personalizadas y estrategias para el desarrollo de hábitos de estudio, 
+            empoderando a los jóvenes para que tomen control de su propio aprendizaje.</li>
+    </ul>
+    <p>Carlos se mantiene en constante aprendizaje, explorando temas como la superación personal, 
+        la creación de hábitos, las técnicas de estudio y la IA para docentes, buscando siempre nuevas formas 
+        de mejorar su práctica profesional.
+    </p>
+    <p>En su tiempo libre, Carlos disfruta de leer, sumergiéndose en libros de diversos temas que expanden su visión del mundo. 
+        También es un cocinero creativo, que le encanta experimentar en la cocina y deleitar a sus seres queridos con platillos deliciosos y saludables.
+    </p>
+    <img
+        class="mx-auto rounded-lg shadow-lg w-80 h-64 object-cover object-center my-4" 
+        src="{% static 'img/comida.jpg' %}" alt="Ensalada de Quinoa">
+    <p>Además, es un entusiasta del ejercicio que mantiene un estilo de vida activo, practicando deportes y 
+        actividades que lo mantienen en forma y le llenan de energía. Y por si fuera poco, es un viajero 
+        incansable que explora el mundo con curiosidad, aprendiendo sobre diferentes culturas y ampliando sus horizontes.
+    </p>
+    <p>Su experiencia profesional es tan vasta como diversa: Ha dado clases de informática, programación y robótica pedagógica, 
+        impulsando la pasión por la tecnología en las nuevas generaciones.
+    </p>
+    <p>Ha sido parte del equipo organizador del Campeonato Latinoamericano de Robótica, un evento que reúne a jóvenes talentos de toda la región. 
+        También ha sido capacitador, docente y entrenador de maestros en Guatemala, El Salvador y Honduras, compartiendo su conocimiento 
+        y experiencia con otros educadores.
+    </p>
+    <p>Su curiosidad por el uso de la IA en el aula lo ha llevado a capacitar a maestros sobre cómo utilizar esta tecnología para mejorar 
+        el aprendizaje de los estudiantes, tanto como herramienta de productividad como para la creación de contenidos creativos.
+    </p>
+    <img
+        class="mx-auto rounded-lg shadow-lg w-80 h-64 object-cover object-center my-4" 
+        src="{% static 'img/AI4Teachers.jpg' %}" alt="Inteligencia Artificial para Maestros">
+    <p>En la actualidad, Carlos reside en Amman, Jordania, donde continúa su camino de aprendizaje y transformación. 
+        Comparte su pasión por el conocimiento con el mundo a través de su trabajo, sus conferencias y su blog, 
+        inspirando a otros a seguir sus sueños y alcanzar su máximo potencial.
+    </p>
+</div>
+{% endblock %}

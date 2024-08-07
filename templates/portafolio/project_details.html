@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{project.title}}{% endblock %}
+{% block description %}{{project.description}}{% endblock %}
+
+{% block content %}
+<img class="w-full md:object-cover md:h-96" src="{{project.image.url}}" alt="{{project.title}}">
+<div class="container px-3 md:mx-auto md:max-w-5xl py-8">
+    <h2 class="text-3xl font-bold mb-4">{{ project.title }}</h2>
+    <p class="text-lg leading-7 mb-4">{{ project.description|safe }}</p>
+    <div class="flex flex-wrap">
+        {% for category in project.categories.all %}
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <a href="{% url 'category_project' category.name %}">#{{ category.name }}</a>
+        </span>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

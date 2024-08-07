@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}| Desarrollo Web - Psicología - Educación</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <header>
+        <nav class="bg-gray-800 text-white p-4 lg:flex lg:justify-between">
+            <!-- Menú de hamburguesa para dispositivos móviles -->
+            <div class="flex items-center justify-between">
+                <a href="{% url "home" %}" class="text-xl font-semibold">
+                    <div class="text-xl font-semibold">Carlos Alba
+                        <div class="text-sm font-light">Desarrollador Web | Psicólogo | Profesor</div>
+                    </div>
+                </a>
+                <button id="menu-toggle" class="lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden lg:flex mt-4 lg:mt-0">
+                <a href="{% url "home" %}" class="block py-2 px-4 hover:bg-gray-700">Inicio</a>
+                <a href="{% url "about" %}" class="block py-2 px-4 hover:bg-gray-700">Acerca de</a>
+                <a href="{% url "portafolio" %}" class="block py-2 px-4 hover:bg-gray-700">Portafolio</a>
+                <a href="{% url "blog" %}" class="block py-2 px-4 hover:bg-gray-700">Blog</a>
+                <a href="{% url "cv" %}" class="block py-2 px-4 hover:bg-gray-700">CV</a>
+                {% comment %} <a href="{% url "courses" %}" class="block py-2 px-4 hover:bg-gray-700">Cursos</a> {% endcomment %}
+                <a href="{% url "contact" %}" class="block py-2 px-4 hover:bg-gray-700">Contacto</a>
+            </div>
+        </nav>
+    </header>
+    <!-- Contenido principal -->
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto">
+            <div class="text-center">
+                &copy; 2024 Carlos Alba
+            </div>
+        </div>
+    <script>
+        // Función para mostrar/ocultar el menú de hamburguesa
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    </footer>
+    
+</body>
+</html>
